@@ -33,3 +33,42 @@ print(citibike_reader.fieldnames)
 
 # from the output of the `print()` statement, we can see that
 # the exact label for the "User Type" column is `usertype`
+
+# now we'll create our three variables to hold the count of each type of Citi Bike
+# user, beginning the count for each at zero
+subscriber_count = 0
+customer_count = 0
+other_user_count = 0
+
+# we want to make sure our for loop is working with the data that's already
+# been transformed by our DictReader recipe
+# so for Step 3, we'll write a `for...in` loop
+# using our `citibike_reader` variable
+for a_row in citibike_reader:
+
+    # in order for my `if` statements to be "inside" my loop,
+    # they have to be indented one more `tab` to the right
+
+    # Step 3a: if the value in the `usertype` column of
+    # the current row is "Subscriber"
+    if a_row["usertype"] == "Subscriber":
+
+        # indenting one more time so that this next line only happens if
+        # `usertype` actually _is_ "Subscriber"
+        subscriber_count = subscriber_count +1
+
+    # Step 3b:because we need to use `else` here, but also need
+    # another "if" statement, we're using the keyword `elif`,
+    # which is short for "else if"
+    elif a_row["usertype"] == "Customer":
+
+        # indenting again so that this next line only happens if
+        # `usertype` actually _is_ "Customer"
+        customer_count = customer_count + 1
+
+    #Step 3c: in this case, we're not checking for anything,
+    # we just know that the `usertype` value is neither
+    # "Subscriber" nor "Customer", so we'll add one to our catch-all
+    # "other" category
+    else:
+        other_user_count = other_user_count + 1
