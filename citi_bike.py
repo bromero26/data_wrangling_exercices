@@ -72,3 +72,10 @@ for a_row in citibike_reader:
     # "other" category
     else:
         other_user_count = other_user_count + 1
+
+print("Number of subscribers:")
+print(subscriber_count)
+print("Number of customers:")
+print(customer_count)
+print("Number of 'other' users:")
+print(other_user_count)
